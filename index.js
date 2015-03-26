@@ -25,13 +25,13 @@ io.on('connection', function(socket){
 
 	ls.stdout.on('data', function (data) {
  	  console.log('stdout: ' + data);			
-    	//  socket.emit('result',   data );
 		socket.emit('result', data.toString() );
 
 	});
 
 	ls.stderr.on('data', function (data) {
 	  console.log('stderr: ' + data);
+	  socket.emit('result', data.toString() );	  
 	});
 
 	ls.on('close', function (code) {
