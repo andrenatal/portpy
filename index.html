@@ -1,12 +1,12 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>PortPy</title>
     <style>
       body { font: 13px Helvetica, Arial; }
-      form textarea { border: 1;  height: 300px; width: 75%;   height: 80vh; }
+      form textarea { border: 1;  height: 300px; width: 75%;   height: 70vh; }
       form button { width: 12%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages  { border: 1;  height: 300px; width: 75%; padding: 5px; vertical-align: center;   height: 80vh; }
+      #messages  { border: 1;  height: 300px; width: 75%; padding: 5px; vertical-align: center;   height: 70vh; }
       .aParent div {
         float: left;
         clear: none; 
@@ -20,6 +20,7 @@
 
 <div class="aParent">
     <div>
+      <H3>Source</H3>
       <form action="">
         <textarea id="m">
 print ("Hello World")
@@ -33,6 +34,7 @@ for name in train:
     </div>
 
     <div>
+      <H3>Output</H3>    
         <textarea id="messages"></textarea>    
     </div>
       
