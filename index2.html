@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form {  padding: 3px; position: fixed; top: 0; bottom :0; width: 50%; }
+      form input { border: 1; padding: 10px; height: 300px; width: 100%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+
+      .aParent div {
+		  float: left;
+		  clear: none; 
+		  width:50%;
+		}
+
+    </style>
+  </head>
+  <body>
+
+<div class="aParent">
+    <div>
+	    <form action="">
+	      <input id="m" autocomplete="off" value='print "Hello World"' /><br><br>
+	      <button>Send</button>
+	    </form>    
+    </div>
+
+    <div>
+   		 <ul id="messages"></ul>
+    </div>
+</div>
+
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  var socket = io();
+  $('form').submit(function(){
+    socket.emit('chat message', $('#m').val());
+    return false;
+  });
+
+ socket.on('result', function(msg){
+    //console.log(msg);
+    //obj = String.fromCharCode.apply(null, new Uint16Array(msg));
+    $('#messages').append($('<li>').text(msg));
+  });
+
+
+</script>
+
+  </body>
+</html>
