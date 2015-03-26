@@ -21,7 +21,7 @@ io.on('connection', function(socket){
 	  //console.log('Hello World > helloworld.txt');
  	});
 
-	var spawn = require('child_process').spawn, ls    = spawn('python', ['python.py'],{detached:true});
+	var spawn = require('child_process').spawn, ls    = spawn('python3', ['python.py'],{detached:true});
 
 	ls.stdout.on('data', function (data) {
  	  console.log('stdout: ' + data);			
